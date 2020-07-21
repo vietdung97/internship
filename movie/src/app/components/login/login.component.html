@@ -1,11 +1,25 @@
+<div class="login">
 <form [formGroup]="formSignin" (ngSubmit)="onSubmit()">
+    <p class="hint-text"><i>Đăng nhập với tài khoản mạng xã hội</i></p>
+    <div class="form-group social-btn clearfix">
+        <button type="button"  class="btn btn-danger pull-left"><i class="fa fa-google-plus"></i> Google</button>
+        <button type="button"  class="btn btn-info pull-right"><i class="fa fa-facebook"></i> Facebook</button>
+    </div>
+    <div class="or-seperator"><b>Hoặc</b></div>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" formControlName="id">
+        <input type="text" class="form-control" placeholder="Username" formControlName="username">
+        <div class="text-danger" *ngIf="isSubmitted && f.username.errors?.required"><i>Tài khoản không hợp lệ</i></div>
     </div>
     <div class="form-group">
         <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        <div class="text-danger" *ngIf="isSubmitted && f.password.errors?.required"><i>Mật khẩu không hợp lệ</i></div>
     </div>
     <div class="text-center">
-        <input type="submit" class="btn btn-success" value="Login">
-    </div>    
+        <input type="submit" class="btn btn-success " value="Login">
+    </div>
+    <div class="form-group text-center">
+        <a routerLink="/signup">Đăng kí tài khoản</a>
+    </div>
+
 </form>
+</div>

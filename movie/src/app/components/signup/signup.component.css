@@ -1,0 +1,29 @@
+.signup {
+    width: 500px;
+    height: 500px;
+    background-color:rgb(236, 248, 250);
+    margin: 0 auto;
+    border: 1px solid #dbb4b4;
+    border-radius: 6px;
+}
+.form-group {
+
+    width:280px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.hint-text {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 17   px;
+}
+.form-control {
+    box-shadow: none;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.form-control:focus {
+    border-color: #33cabb;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}

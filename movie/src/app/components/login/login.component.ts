@@ -8,17 +8,22 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  isSubmitted = false;
   constructor(private authService: AuthService) { }
   formSignin = new FormGroup({
-    id: new FormControl(''),
-    password: new FormControl('')
+    username: new FormControl('',
+      [Validators.required]
+    ),
+    password: new FormControl('', [Validators.required])
   })
   ngOnInit(): void {
   }
+  get f() { return this.formSignin['controls']; }
   onSubmit(){
+    this.isSubmitted = true;
     if (this.formSignin.valid) {
       this.authService.login(this.formSignin.value);
+
     }
   }
 }

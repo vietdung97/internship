@@ -17,6 +17,7 @@ import { CardMovieComponent } from './components/home/card-movie/card-movie.comp
 import { MovieDetailComponent } from './components/home/movie-detail/movie-detail.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
+import { SignupComponent } from './components/signup/signup.component';
 
 registerLocaleData(en);
 
@@ -24,6 +25,7 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
     HomeComponent,
     CardMovieComponent,
     MovieDetailComponent
