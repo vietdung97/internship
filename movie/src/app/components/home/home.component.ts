@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MOVIES} from '../../models/movie.model'
 import { AuthService } from 'src/app/services/auth.service';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',

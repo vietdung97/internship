@@ -12,6 +12,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path:'movie/:id', component: MovieDetailComponent, canActivate:[AuthGuard] },
+  {
+    path: 'common',
+    loadChildren: () =>
+      import('./components/common-layout.module').then((m) => m.CommonLayoutModule),
+  },
 ];
 
 @NgModule({

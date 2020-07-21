@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   isSubmitted = false;
   constructor(private authService: AuthService) { }
   formSignin = new FormGroup({
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   })
   ngOnInit(): void {
+
   }
   get f() { return this.formSignin['controls']; }
   onSubmit(){
@@ -26,4 +29,5 @@ export class LoginComponent implements OnInit {
 
     }
   }
+
 }

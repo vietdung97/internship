@@ -442,3 +442,4 @@ export const MOVIES = [
         ]
     }
 ]
+export const GENRES = ["Action", "Adventure", "Fantasy", "Drama", "Horror", "Sci-Fi", "Thriller", "Biography", "Comedy", "Crime", "History"]
