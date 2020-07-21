@@ -1,0 +1,10 @@
+<div nz-col [nzSpan]="8">
+    <a routerLink="movie/{{movie.Title}}" title="{{movie.Title}}">
+        <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+            <nz-card-meta nzTitle="{{movie.Title}}" nzDescription="{{movie.Genre}}"></nz-card-meta>
+            <ng-template #coverTemplate>
+                <img style="height: 380px;" alt="example" src="{{movie.Poster}}">
+            </ng-template>
+        </nz-card>
+    </a>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+        <img src="{{movie$.Poster}}">
+    </div>
+    <div class="info">
+        <nz-descriptions class="infor-movie" nzTitle="{{movie$.Title}} ({{movie$.Year}})">
+            <nz-descriptions-item nzTitle="Year">{{movie$.Year}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Release date">{{movie$.Released}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Runtime">{{movie$.Runtime}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Director">{{movie$.Director}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="IMDB">{{movie$.imdbRating}}</nz-descriptions-item>
+        </nz-descriptions>
+    </div>
+
+</div>
+<div class="container">
+    <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate" *ngFor="let img of movie$.Images">
+        <ng-template #coverTemplate>
+            <img alt="example" src="{{img}}" />
+        </ng-template>
+    </nz-card>
+</div>

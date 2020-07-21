@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+ul, li {
+    list-style: none;
+}
+.info {
+    margin-left: 25px;
+}
+.infor-movie{
+    color: #fff;
+}

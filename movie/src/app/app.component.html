@@ -1,0 +1,18 @@
+<nz-layout>
+  <nz-header>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li><a routerLink="" class="nav-home">LOGO</a></li>
+      <li><a routerLink="thongbao" class="nav-login" *ngIf="isLoggedIn$ | async" (click)="onLogout()">Đăng xuất</a></li>
+      <!-- <li><a routerLink="login" class="nav-login" *ngIf="isLoggedIn$ | async">Đăng nhập</a></li> -->
+      <li><a routerLink="thongbao" class="nav-login" *ngIf="isLoggedIn$ | async">Thông báo</a></li>
+      <!-- <nz-modal [(nzVisible)]="isVisible" nzTitle="Login" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <app-login></app-login>
+      </nz-modal> -->
+    </ul>
+  </nz-header>
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+</nz-layout>

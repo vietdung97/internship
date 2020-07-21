@@ -1,0 +1,22 @@
+.inner-content {
+    background: #c6c8ca;
+    padding: 24px;
+    min-height: 280px;
+  }
+  ul {
+    margin: 0 auto;
+    width: 70%;
+  }
+.nav-login{
+  float: right;
+}
+.nav-home{
+  float: left;
+}
+.nav-home img {
+  height: 64px;
+  width: 128px;
+}
+li a {
+  margin-right: 15px;
+}
