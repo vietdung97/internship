@@ -8,10 +8,10 @@ import { SignupComponent } from './components/signup/signup.component';
 
 
 const routes: Routes = [
-  { path:'', component: HomeComponent, canActivate:[AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path:'movie/:id', component: MovieDetailComponent, canActivate:[AuthGuard] },
+  { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard] },
   {
     path: 'common',
     loadChildren: () =>

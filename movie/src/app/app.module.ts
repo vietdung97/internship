@@ -20,6 +20,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { CommonLayoutModule } from './components/common-layout.module';
 
+
 registerLocaleData(en);
 
 @NgModule({
@@ -30,6 +31,7 @@ registerLocaleData(en);
     HomeComponent,
     CardMovieComponent,
     MovieDetailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ registerLocaleData(en);
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US },AuthService, AuthGuard],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

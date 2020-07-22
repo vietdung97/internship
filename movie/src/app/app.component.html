@@ -1,10 +1,11 @@
-<nz-layout>
+<nz-layout >
   <nz-header>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <li><a routerLink="" class="nav-home">LOGO</a></li>
       <li><a routerLink="/" class="nav-login" *ngIf="isLoggedIn$ | async" (click)="onLogout()">Đăng xuất</a></li>
       <!-- <li><a routerLink="login" class="nav-login" *ngIf="isLoggedIn$ | async">Đăng nhập</a></li> -->
       <li><a routerLink="common" class="nav-login" *ngIf="isLoggedIn$ | async">Thể loại phim</a></li>
+      <li><a routerLink="timkiem" class="nav-login">Tìm kiếm</a></li>
       <!-- <nz-modal [(nzVisible)]="isVisible" nzTitle="Login" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
         <app-login></app-login>
       </nz-modal> -->

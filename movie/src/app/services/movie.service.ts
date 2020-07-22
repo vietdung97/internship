@@ -6,16 +6,20 @@ import { MOVIES, GENRES } from '../models/movie.model';
   providedIn: 'root'
 })
 export class MovieService {
-  
   constructor() { }
-  getMovieByID(id){
-    let movies = MOVIES;
-    const result = movies.filter(movieID => movieID.Title == id);
+  getMovieByID(id) {
+    const movies = MOVIES;
+    const result = movies.filter(movieID => movieID.Title === id);
     return of(result);
   }
-  getMovieByGenre(genre):Observable<any>{
-    let movies= MOVIES;
-    const result = movies.filter(res => res.Genre.search(genre) != -1);
+  getMovieByGenre(genre): Observable<any> {
+    const movies = MOVIES;
+    const result = movies.filter(res => res.Genre.search(genre) !== -1);
+    return of(result);
+  }
+  findMovieByName(keyword): Observable<any> {
+    const movies = MOVIES;
+    const result = movies.filter(res => res.Title.toLowerCase().search(keyword.toLowerCase()) !== -1);
     return of(result);
   }
 }

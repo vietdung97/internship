@@ -7,18 +7,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     styleUrls: ['./signup.component.css']
   })
   export class SignupComponent implements OnInit{
-      isSubmitted: boolean = false;
-      constructor(){}
+      isSubmitted = false;
+      constructor() {}
       formSignup = new FormGroup({
         username: new FormControl('',
           [Validators.required]
         ),
         password: new FormControl('', [Validators.required])
       })
-      
-      ngOnInit():void{}
-      get f() { return this.formSignup['controls']; }
-      onSubmit(){
+      ngOnInit(): void{}
+      get f() { return this.formSignup.controls; }
+      onSubmit() {
           this.isSubmitted = true;
       }
   }

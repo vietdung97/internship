@@ -21,7 +21,6 @@ export class ListGenreMovieComponent implements OnInit {
     this.movieGenre$ = this._route.paramMap.pipe(
       map(params => params.get('genre')),
       switchMap(genre => this.movieService.getMovieByGenre(genre))
-    )
+    );
   }
-  
 }
