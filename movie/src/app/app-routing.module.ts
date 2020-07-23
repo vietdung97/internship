@@ -5,13 +5,14 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieDetailComponent } from './components/home/movie-detail/movie-detail.component';
 import { AuthGuard } from './guard/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
+import { animation } from '@angular/animations';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard], data: {animation: 'HomePage'} },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard] },
+  { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard], data: {animation: 'ListMoviePage'} },
   {
     path: 'common',
     loadChildren: () =>

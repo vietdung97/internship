@@ -1,8 +1,9 @@
-import { Component, OnInit, Directive, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, switchMap} from 'rxjs/operators';
 import { MovieService } from 'src/app/services/movie.service';
 import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-search',
@@ -13,17 +14,17 @@ import { FormControl } from '@angular/forms';
 export class SearchComponent implements OnInit, AfterViewInit {
   @ViewChild('result') result: ElementRef;
   @ViewChild('searchLayout') searchLayout: ElementRef;
-  keyword = new FormControl('');
+  keyword: string;
   data = [];
-  searchedMovie$ = new BehaviorSubject<string>('.');
+  searchedMovie$ = new BehaviorSubject<string>('');
   constructor(private movieService: MovieService) {
     document.addEventListener('click', this.offClickHandler.bind(this));
   }
-
   ngOnInit(): void {
     this.searchedMovie$.pipe(
       debounceTime(500),
       switchMap((query) => {
+        this.keyword = query;
         return this.movieService.findMovieByName(query);
       })
     )

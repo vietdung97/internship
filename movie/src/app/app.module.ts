@@ -19,6 +19,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { CommonLayoutModule } from './components/common-layout.module';
+// import { BoldKeywordPipe } from './components/bold-keyword.pipe';
 
 
 registerLocaleData(en);
@@ -31,6 +32,7 @@ registerLocaleData(en);
     HomeComponent,
     CardMovieComponent,
     MovieDetailComponent,
+    // BoldKeywordPipe
 
   ],
   imports: [

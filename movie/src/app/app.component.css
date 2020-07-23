@@ -20,3 +20,16 @@
 li a {
   margin-right: 15px;
 }
+.image-state{
+  z-index: 2;
+}
+.test-animation1,.test-animation2 {
+  margin: 0 auto;
+}
+.test-animation2{
+  display: flex;
+  flex-direction: column;
+}
+.adjust, .adjust button{
+  margin: 20px;
+}

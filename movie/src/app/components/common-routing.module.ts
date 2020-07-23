@@ -4,6 +4,7 @@ import { CommonLayoutComponent } from './common/common-layout.component';
 import { ListGenreComponent } from './list-genre/list-genre.component';
 import { ListGenreMovieComponent } from './list-genre-movie/list-genre-movie.component';
 import { SearchComponent } from './search/search.component';
+import { animation } from '@angular/animations';
 
 const routes: Routes = [
     {
@@ -23,6 +24,7 @@ const routes: Routes = [
     {
       path: 'timkiem',
       component: SearchComponent,
+      data: {animation: 'SearchPage'}
     }
 ];
 @NgModule({

@@ -7,6 +7,8 @@ export class SearchDirective {
   constructor() { }
   @HostListener('click', ['$event']) onClick(event) {
     const list = document.getElementById('list-search');
-    list.style.display = 'block';
+    if (list != null) {
+      list.style.display = 'block';
+    }
   }
 }

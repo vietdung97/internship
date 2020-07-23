@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { SearchDirective } from './search/search.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoldKeywordPipe } from './bold-keyword.pipe';
 
 
 @NgModule({
-    declarations: [CommonLayoutComponent, ListGenreComponent, ListGenreMovieComponent, SearchComponent, SearchDirective],
+    declarations: [CommonLayoutComponent, ListGenreComponent, ListGenreMovieComponent, SearchComponent, SearchDirective, BoldKeywordPipe],
     imports: [
         DemoNgZorroAntdModule,
         BrowserModule,
@@ -21,5 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         FormsModule,
         ReactiveFormsModule
     ],
+    exports: [BoldKeywordPipe]
 })
 export class CommonLayoutModule {}

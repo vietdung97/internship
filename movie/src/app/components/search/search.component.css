@@ -7,10 +7,24 @@ nz-list{
   width: auto;
   margin: 0 auto;
 }
+nz-list-item{
+  justify-content: left;
+}
+nz-list-item:hover{
+  background-color: rgb(180, 198, 199);
+  color: #000;
+  transform: scale(1.05);
+}
 .result{
   max-height: 300px;
   display: none;
   overflow: scroll;
   z-index: 1;
 }
-
+.poster-small {
+  width: 50px;
+  height: 50px;
+}
+p {
+  margin-left: 20px;
+}

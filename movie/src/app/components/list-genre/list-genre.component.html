@@ -1,9 +1,4 @@
-<nz-input-group [nzSuffix]="suffixIconSearch">
-  <input type="text" nz-input placeholder="input search text" />
-</nz-input-group>
-<ng-template #suffixIconSearch>
-  <i nz-icon nzType="search"></i>
-</ng-template>
+
 <h3 [ngStyle]="{ margin: '16px 0' }">List Genre</h3>
 <ul>
    <li *ngFor="let genre of genres"><a routerLink="{{genre}}">{{genre}}</a></li>

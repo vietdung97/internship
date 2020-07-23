@@ -19,7 +19,7 @@ export class MovieService {
   }
   findMovieByName(keyword): Observable<any> {
     const movies = MOVIES;
-    const result = movies.filter(res => res.Title.toLowerCase().search(keyword.toLowerCase()) !== -1);
+    const result = movies.filter(res => res.Title.toLowerCase().search(keyword.trim().toLowerCase()) !== -1);
     return of(result);
   }
 }
