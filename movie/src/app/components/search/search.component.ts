@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, switchMap} from 'rxjs/operators';
 import { MovieService } from 'src/app/services/movie.service';
-import { FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   keyword: string;
   data = [];
   searchedMovie$ = new BehaviorSubject<string>('');
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private authService: AuthService) {
     document.addEventListener('click', this.offClickHandler.bind(this));
   }
   ngOnInit(): void {

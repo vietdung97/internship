@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { trigger, state, style, transition, animate, query, animateChild, group } from '@angular/animations';
+import { User } from './models/user.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +37,7 @@ import { trigger, state, style, transition, animate, query, animateChild, group 
     // Router animation
     trigger('routeAnimations', [
       transition('* <=> *', [
-        query(':enter, :leave',  [
+        query(':enter, :leave', [
           style({
             position: 'absolute',
             left: 0,
@@ -56,13 +58,21 @@ export class AppComponent implements OnInit {
   show = false;
   position: string;
   title = 'movie';
+  currentUser;
+  authSubs: Subscription;
   isLoggedIn$: Observable<boolean>;
-  constructor(private authService: AuthService) {}
-  ngOnInit(): void{
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.authSubs = this.authService.user$.subscribe(user => {
+      this.currentUser = user;
+    }
+    )
   }
   onLogout(): void {
-    this.authService.logout();
+    this.authService.signOut();
   }
   // get stateName() {
   //   return this.show ? 'show' : 'hide';
@@ -73,6 +83,7 @@ export class AppComponent implements OnInit {
   // changePosition(newPosition: string) {
   //   this.position = newPosition;
   // }
+
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }

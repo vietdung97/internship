@@ -2,15 +2,21 @@
 <form [formGroup]="formSignup" (ngSubmit)="onSubmit()">
     <p class="hint-text">Nhập đủ thông tin để tạo tài khoản</p>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" formControlName="username">
-        <div class="text-danger" *ngIf="isSubmitted &&f.username.errors?.required"><i>Tài khoản không hợp lệ</i></div>
+        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+        <label class="col text-danger" *ngIf="isSubmitted && f.email.errors?.required"><i>Nhập email !</i></label>
+        <label class="col text-danger" *ngIf="isSubmitted && f.email.errors?.email">Email không hợp lệ !</label>
     </div>
     <div class="form-group">
         <input type="password" class="form-control" placeholder="Password" formControlName="password">
-        <div class="text-danger" *ngIf="isSubmitted &&f.password.errors?.required"><i>Mật khẩu không hợp lệ</i></div>
+        <label class="col text-danger" *ngIf="isSubmitted && f.password.errors?.required"><i>Mật khẩu không hợp lệ</i></label>
+        <label class="col text-danger" *ngIf="f.password.hasError('minlength')">Chứa ít nhất 6 ký tự!</label>
     </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Re-password" formControlName="confirm">
+      <label class="col text-danger" *ngIf="f.confirm.hasError('NoPassswordMatch')"><i>Mật khẩu không trùng khớp</i></label>
+  </div>
     <div class="text-center">
-        <input type="submit" class="btn btn-success" value="Sign-up">
+        <input type="submit" class="btn btn-success" value="Sign-Up">
     </div>
 </form>
 </div>
