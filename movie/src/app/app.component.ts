@@ -58,6 +58,7 @@ export class AppComponent implements OnInit {
   show = false;
   position: string;
   title = 'movie';
+  // currentUser: User = {} as User;
   currentUser;
   authSubs: Subscription;
   isLoggedIn$: Observable<boolean>;

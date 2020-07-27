@@ -27,6 +27,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CommonLayoutModule } from './components/common-layout.module';
 // import { BoldKeywordPipe } from './components/bold-keyword.pipe';
 import { environment } from '../environments/environment';
+import { ManageComponent } from './components/manage/manage.component';
+import { AddMovieComponent } from './components/manage/add-movie/add-movie.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 
 registerLocaleData(en);
@@ -40,7 +44,8 @@ registerLocaleData(en);
     CardMovieComponent,
     MovieDetailComponent,
     // BoldKeywordPipe
-
+    ManageComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ registerLocaleData(en);
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ModalModule.forRoot(),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, AuthService, AuthGuard],
   bootstrap: [AppComponent]

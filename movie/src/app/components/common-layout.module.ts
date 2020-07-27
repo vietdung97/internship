@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoldKeywordPipe } from './bold-keyword.pipe';
 
 
+
+
+
 @NgModule({
     declarations: [CommonLayoutComponent, ListGenreComponent, ListGenreMovieComponent, SearchComponent, SearchDirective, BoldKeywordPipe],
     imports: [
@@ -20,8 +23,11 @@ import { BoldKeywordPipe } from './bold-keyword.pipe';
         CommonModule,
         CommonRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+
+
     ],
-    exports: [BoldKeywordPipe]
+    exports: [BoldKeywordPipe],
+
 })
 export class CommonLayoutModule {}
