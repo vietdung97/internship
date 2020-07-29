@@ -2,43 +2,61 @@
   <button nz-button nzType="primary" (click)="openModal(formAddMovie)">
     <span>Add other movie</span>
   </button>
-  <ng-template #formAddMovie>
-    <div>
-      <a type='button' class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true" style='font-size: 2.5rem; margin-right: 16px;'>&times;</span>
-      </a>
-    </div>
-    <div class="modal-body">
-      <app-add-movie (outputForm)="getValue($event)" (close)="modalRef.hide()"></app-add-movie>
-    </div>
-  </ng-template>
 </div>
-<nz-table #listMovie [nzData]="movies$">
+<nz-table #listMovie [nzData]="movies$" (nzPageIndexChange)="getPageIndex($event)" [nzPageSize]="10"
+  [nzLoadingDelay]="1000">
   <thead>
-    <tr>
+    <tr nzWidth="100">
       <th>No.</th>
       <th>Title</th>
       <th>Genre</th>
       <th>Year</th>
       <th>Released Date</th>
       <th>IDMB</th>
-      <th>Action</th>
+      <th nzWidth="200px">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of listMovie.data, let i = index">
-      <td>{{ i + 1}}</td>
+    <tr *ngFor="let data of listMovie.data, let i = index" (click)="navigate(data)">
+      <td [colSpan]="1">{{ pageCurrent + i + 1}}</td>
       <td>{{ data.title }}</td>
       <td>{{ data.genre }}</td>
       <td>{{ data.year }}</td>
       <td>{{ data?.released | date }}</td>
       <td>{{ data?.imdbRating }}</td>
       <td>
+        <button nz-button nzType="danger" (click)="openModal(formEditMovie);$event.stopPropagation()">
+          <span>Edit</span>
+        </button>
         <nz-divider nzType="vertical"></nz-divider>
         <button nz-button nzType="primary" (click)="deleteMovie(data)">
           <span>Delete</span>
         </button>
       </td>
+
+<!-- Modal edit movie -->
+      <ng-template #formEditMovie>
+        <div>
+          <a type='button' class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true" style='font-size: 2.5rem; margin-right: 16px;'>&times;</span>
+          </a>
+        </div>
+        <div class="modal-body">
+          <app-edit-movie [dataEditMovie]="data" (editMovieFormOut)="getValue($event)" (close)="modalRef.hide()"></app-edit-movie>
+        </div>
+      </ng-template>
     </tr>
   </tbody>
 </nz-table>
+
+<!-- Modal add movie -->
+<ng-template #formAddMovie>
+  <div>
+    <a type='button' class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true" style='font-size: 2.5rem; margin-right: 16px;'>&times;</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <app-add-movie (addMovieFormOut)="getValue($event)" (close)="modalRef.hide()"></app-add-movie>
+  </div>
+</ng-template>

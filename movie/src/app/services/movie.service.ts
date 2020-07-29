@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
-import { MOVIES, GENRES } from '../models/movie.model';
+import { MOVIES, GENRES, Movie } from '../models/movie.model';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  constructor() { }
+
+
+  constructor(private afs: AngularFirestore) { }
+
   getMovieByID(id) {
     const movies = MOVIES;
     const result = movies.filter(movieID => movieID.Title === id);

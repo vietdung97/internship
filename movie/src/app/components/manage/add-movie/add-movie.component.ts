@@ -14,12 +14,15 @@ export class AddMovieComponent implements OnInit, OnDestroy {
   link;
   eventFile: File;
   downloadURL: Observable<string>;
-
-  @Output() outputForm = new EventEmitter<FormGroup>();
+  message: string;
+  imagePath;
+  imgURL;
+  isSubmitted = false;
+  @Output() addMovieFormOut = new EventEmitter<FormGroup>();
   @Output() close = new EventEmitter();
   constructor(
     private fb: FormBuilder,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
   ) { }
 
   ngOnInit(): void {
@@ -46,16 +49,14 @@ export class AddMovieComponent implements OnInit, OnDestroy {
       response: [null, [Validators.required]],
       images: [[], [Validators.required]],
     });
-    // this.onChangeValueForm();
   }
 
   ngOnDestroy(): void {
   }
 
-  // onChangeValueForm() {
-  //   this.addMovieForm.valueChanges.subscribe(val => this.onSubmit());
-  // }
   onSubmit() {
+    let link = new Array();
+    this.isSubmitted = true;
     const randomId = Math.random().toString(36).substring(2);
     const newImageRef = this.afStorage.ref(randomId);
     const task = newImageRef.put(this.eventFile);
@@ -63,10 +64,11 @@ export class AddMovieComponent implements OnInit, OnDestroy {
       finalize(() => {
         this.downloadURL = newImageRef.getDownloadURL();
         this.downloadURL.subscribe(url => {
-          this.addMovieForm.value.images = url;
-          this.outputForm.emit(this.addMovieForm);
-          console.log(this.addMovieForm.value);
-          console.log(this.addMovieForm.value.images);
+          link.push(url);
+          this.addMovieForm.value.images = link;
+          this.addMovieFormOut.emit(this.addMovieForm);
+          // console.log(this.addMovieForm.value);
+          // console.log(this.addMovieForm.value.images);
         });
       })
     )
@@ -75,11 +77,31 @@ export class AddMovieComponent implements OnInit, OnDestroy {
   }
   resetForm(){
     this.addMovieForm.reset();
+    this.imgURL = null;
+    this.message = null;
+    this.isSubmitted = false;
   }
   onCancel(){
     this.close.emit(null);
+    this.isSubmitted = false;
   }
   getEventFile(event) {
+    const file = event.target.files;
     this.eventFile = event.target.files[0];
-    }
+    if (file.length === 0)
+    return;
+
+  var mimeType = file[0].type;
+  if (mimeType.match(/image\/*/) == null) {
+    this.message = "Only images are supported.";
+    return;
   }
+
+  var reader = new FileReader();
+  this.imagePath = file;
+  reader.readAsDataURL(file[0]);
+  reader.onload = (_event) => {
+    this.imgURL = reader.result;
+  }
+  }
+}

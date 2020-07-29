@@ -30,6 +30,7 @@ import { environment } from '../environments/environment';
 import { ManageComponent } from './components/manage/manage.component';
 import { AddMovieComponent } from './components/manage/add-movie/add-movie.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EditMovieComponent } from './components/manage/edit-movie/edit-movie.component';
 
 
 
@@ -45,7 +46,8 @@ registerLocaleData(en);
     MovieDetailComponent,
     // BoldKeywordPipe
     ManageComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,

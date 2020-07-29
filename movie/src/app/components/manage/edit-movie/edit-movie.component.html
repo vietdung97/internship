@@ -1,65 +1,54 @@
-<form [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editMovieForm" (ngSubmit)="onSubmit()">
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="title">Title</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="title" id="title"/>
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.title?.errors?.required"><i>Title must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="year">Year</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="year" id="year" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.year?.errors?.required"><i>Year must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="poster">Poster</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="poster" id="poster" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.poster?.errors?.required"><i>Poster must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="runtime">Runtime</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="runtime" id="runtime" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.runtime?.errors?.required"><i>Runtime must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="released">Released</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input type="date" nz-input formControlName="released" id="released" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.released?.errors?.required"><i>Released must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="imdbRating">IMDB</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="imdbRating" id="imdbRating" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.imdbRating?.errors?.required"><i>IMDB must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="director">Director</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
       <input nz-input formControlName="director" id="director" />
-      <div class="text-danger" *ngIf="isSubmitted && addMovieForm.controls.director?.errors?.required"><i>Director must not empty </i></div>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="images">Images</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input #file type="file" formControlName="images" id="images" (change)="getEventFile($event);"/>
-      <span class="text-danger" *ngIf="message">{{message}}</span>
-      <img [src]="imgURL" height="180" *ngIf="imgURL">
+      <input nz-input formControlName="images" id="images" />
+      <input nz-input type="file" />
     </nz-form-control>
   </nz-form-item>
   <div class="action">
-    <div class="text-center">
-      <input type="button" class="btn btn-danger" value="Reset" (click)="resetForm()">
-    </div>
     <div class="text-center">
       <input type="button" class="btn btn-light" value="Cancel" (click)="onCancel()">
     </div>
