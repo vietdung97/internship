@@ -9,6 +9,7 @@
     <tr nzWidth="100">
       <th>No.</th>
       <th>Title</th>
+      <th>Poster</th>
       <th>Genre</th>
       <th>Year</th>
       <th>Released Date</th>
@@ -20,6 +21,7 @@
     <tr *ngFor="let data of listMovie.data, let i = index" (click)="navigate(data)">
       <td [colSpan]="1">{{ pageCurrent + i + 1}}</td>
       <td>{{ data.title }}</td>
+      <td><img style="width: 100px; height: 100px" src="{{data.images[0]}}"></td>
       <td>{{ data.genre }}</td>
       <td>{{ data.year }}</td>
       <td>{{ data?.released | date }}</td>
@@ -29,7 +31,7 @@
           <span>Edit</span>
         </button>
         <nz-divider nzType="vertical"></nz-divider>
-        <button nz-button nzType="primary" (click)="deleteMovie(data)">
+        <button nz-button nzType="primary" (click)="deleteMovie(data); $event.stopPropagation()">
           <span>Delete</span>
         </button>
       </td>

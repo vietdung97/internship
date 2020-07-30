@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/menu/home" routerDirection="root">
+            Home
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" *ngIf="isLoggedIn$">
+          <ion-item routerLink="/menu/manage" routerDirection="root">
+            Manage
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" *ngIf="!isLoggedIn$">
+          <ion-item routerLink="/menu/login" routerDirection="root">
+            Login
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" *ngIf="!isLoggedIn$">
+          <ion-item routerLink="/menu/signup" routerDirection="root">
+            Signup
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" *ngIf="isLoggedIn$">
+          <ion-item routerLink="/" routerDirection="root" (click)="onLogout()">
+            Logout
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content" main></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,20 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>
+      Home
+    </ion-title>
+    <!-- <ion-chip *ngIf="currentUser"> 
+      <ion-avatar>
+        <img src="{{currentUser?.photoURL}}">
+      </ion-avatar>
+      <ion-label>{{(currentUser?.displayName == null) ? currentUser?.email?.split('@')[0] : currentUser?.displayName}}</ion-label>
+    </ion-chip> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-content class="card-background-page">
+    <app-card-movie *ngFor="let movie of movies" [movie]="movie"></app-card-movie>
+  </ion-content>
+</ion-content>
+

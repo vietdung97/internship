@@ -10,7 +10,7 @@ import { ManageComponent } from './components/manage/manage.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: {animation: 'HomePage'} },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard],data: {animation: 'HomePage'} },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'movie/:id', component: MovieDetailComponent, canActivate: [AuthGuard], data: {animation: 'ListMoviePage'} },

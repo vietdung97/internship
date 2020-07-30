@@ -1,0 +1,14 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "ionic-angular-movie",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "linuxAndroidStudioPath": "../../androidStudio/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

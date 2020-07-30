@@ -2,6 +2,7 @@
   <nz-header>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <li><a routerLink="" class="nav-home">LOGO</a></li>
+      <!-- <li><a routerLink="/login" class="nav-login" *ngIf="!isLoggedIn$ | async">Đăng nhập</a></li> -->
       <li><a routerLink="/" class="nav-login" *ngIf="isLoggedIn$ | async" (click)="onLogout()">Đăng xuất</a></li>
       <li><a class="nav-login" *ngIf="isLoggedIn$ | async">{{(currentUser?.displayName == null) ? currentUser?.email?.split('@')[0] : currentUser?.displayName}}</a></li>
       <li><a routerLink="common" class="nav-login" *ngIf="isLoggedIn$ | async">Thể loại phim</a></li>

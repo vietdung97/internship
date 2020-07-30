@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="mango">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding='true'>
+  <form [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin)">
+    <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input formControlName="email" type="text" placeholder="your@email.com"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item lines='none'>
+      <a routerLink='/menu/signup'>Create Account</a>
+    </ion-item>
+    <ion-button color="primary" type="submit">
+      Sign In
+    </ion-button>
+    <ion-button color="danger" (click)="googleSignIn()">
+      <ion-label>Login with Google+</ion-label>
+      <ion-icon name="logo-google"></ion-icon>
+    </ion-button>
+  </ion-list>
+  </form>
+</ion-content>
